@@ -11,7 +11,7 @@ int main()
 	int y1, y2;
 	int x, y;
 	
-	cout << "x1: ";
+    cout << "x1: ";
     cin >> x1;
     cout << "\ny1: ";
     cin >> y1;
@@ -47,16 +47,16 @@ int main()
     	HWND hwnd = GetConsoleWindow(); // Get the HWND
 		HDC hdc = GetDC(hwnd); // Get the DC from that HWND
 	
-	    for( int i = y ; i < y+height; i++ ){
-	    	//for (int j = x; j < x+width; j++){
-	    	//	if (j == x|| i == y|| i == y+height || j == x+width){
-					SetPixel(hdc, x, i, color); // SetPixel(HDC hdc, int x, int y, COLORREF color)	
-			//	}
-			//}
+	      for( int i = 0 ; i < height; i++ ){
+	    	for (int j = 0; j < width; j++){
+	    		if (j == 0|| i == 0|| i == width-1|| j == height-1){
+					SetPixel(hdc, x+j, y+i, color); // SetPixel(HDC hdc, int x, int y, COLORREF color)	
+			}
+		}
 	    }
-	}
+     }
 
-	ReleaseDC(hwnd, hdc); // Release the DC
+    ReleaseDC(hwnd, hdc); // Release the DC
     DeleteDC(hdc); // Delete the DC
     system("pause");
     
